@@ -1,3 +1,4 @@
+import LoginPage from "@/components/ui/LoginPage";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,11 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Login = () => {
-  return (
-    <div>
-      <h1>This is login page</h1>
-    </div>
-  );
+  return <LoginPage />;
 };
 
 export default Login;
