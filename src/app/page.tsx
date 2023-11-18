@@ -1,7 +1,5 @@
+import { redirect,  } from "next/navigation";
+
 export default function Home() {
-  return (
-    <main>
-      <h1>Welcome to next app</h1>
-    </main>
-  );
+  return redirect("/home");
 }
