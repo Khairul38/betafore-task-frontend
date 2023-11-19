@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/redux/reduxHooks";
 import { userLoggedIn } from "@/redux/features/auth/authSlice";
-import { stateUpdate } from "@/redux/features/cart/cartSlice";
+import { clearCart, stateUpdate } from "@/redux/features/cart/cartSlice";
 import { paymentSuccess } from "@/redux/features/payment/paymentSlice";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -27,6 +27,8 @@ const useAuthCheck = () => {
     if (localStateData) {
       const StateData = JSON.parse(localStateData);
       dispatch(stateUpdate(StateData));
+    } else {
+      dispatch(clearCart());
     }
     if (localPaymentData) {
       const payment = JSON.parse(localPaymentData);

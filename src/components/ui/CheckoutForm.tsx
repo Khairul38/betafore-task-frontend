@@ -86,7 +86,7 @@ const CheckoutForm = ({
     } else {
       notify("success", "Your payment processed successfully");
       setProcessing(false);
-      localStorage.removeItem("stateData");
+
       const payment = {
         amount: paymentIntent.amount,
         created: paymentIntent.created,
@@ -96,6 +96,7 @@ const CheckoutForm = ({
       dispatch(paymentSuccess(payment));
       localStorage.setItem("payment", JSON.stringify({ ...payment }));
       router.push("/success");
+      localStorage.removeItem("stateData");
     }
   };
   return (
