@@ -1,3 +1,4 @@
+import RegisterPage from "@/components/ui/RegisterPage";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,11 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Register = () => {
-  return (
-    <div>
-      <h1>This is register page</h1>
-    </div>
-  );
+  return <RegisterPage />;
 };
 
 export default Register;

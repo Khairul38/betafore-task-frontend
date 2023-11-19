@@ -1,0 +1,30 @@
+[
+  {
+    "_id": 1,
+    "title": "AMD Ryzen 5 5600G Processor with Radeon Graphic",
+    "image": "https://i.ibb.co/CJjmNMX/ryzen-5-5600g-500x500-Photo-Room-png-Photo-Room.png",
+    "price": 35500,
+    "totalQuantity": 20
+  },
+  {
+    "_id": 2,
+    "title": "GIGABYTE Z690 AORUS ELITE DDR4 12th Gen ATX Motherboard",
+    "image": "https://i.ibb.co/wz29TL7/z690-aorus-elite-ddr4-01-500x500-Photo-Room-png-Photo-Room.png",
+    "price": 9300,
+    "totalQuantity": 35
+  },
+  {
+    "_id": 3,
+    "title": "G.Skill Trident Z5 RGB 32GB DDR5 6000MHz Desktop RAM",
+    "image": "https://i.ibb.co/tQNzSBM/trident-z5-rgb-32gb-01-500x500-Photo-Room-png-Photo-Room.png",
+    "price": 36500,
+    "totalQuantity": 72
+  },
+  {
+    "_id": 4,
+    "title": "Asus ROG Fusion II 500 Wired Over-Ear Gaming Headphone",
+    "image": "https://i.ibb.co/m4hMnnm/rog-fusion-ii-500-500x500-Photo-Room-png-Photo-Room.png",
+    "price": 27500,
+    "totalQuantity": 62
+  }
+]

@@ -1,5 +1,5 @@
 "use client";
-import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { useSignupMutation } from "@/redux/features/auth/authApi";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import Loader from "../common/Loader";
@@ -7,22 +7,36 @@ import { useEffect } from "react";
 import { notify } from "../common/Toastify";
 import { useRouter } from "next/navigation";
 
-interface LoginFormInputs {
+interface SignupFormInputs {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const router = useRouter();
-  const [login, { data, isLoading, error }] = useLoginMutation();
+  const [signup, { data, isLoading, error }] = useSignupMutation();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormInputs>();
+  } = useForm<SignupFormInputs>();
 
-  const onSubmit = (data: LoginFormInputs) => {
-    login({ email: data.email, password: data.password });
+  const onSubmit = (data: SignupFormInputs) => {
+    if (data.password !== data.confirmPassword) {
+      notify("error", "Password do not match");
+    } else {
+      signup({
+        name: {
+          firstName: data.firstName,
+          lastName: data.lastName,
+        },
+        email: data.email,
+        password: data.password,
+      });
+    }
   };
 
   useEffect(() => {
@@ -52,6 +66,46 @@ const LoginPage = () => {
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-5">
+              <label
+                htmlFor="firstName"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Your first name
+              </label>
+              <input
+                type="text"
+                id="firstName"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+                {...register("firstName", {
+                  required: "First Name is required",
+                })}
+              />
+              {errors.firstName && (
+                <p className="text-red-600">{errors.firstName.message}</p>
+              )}
+            </div>
+            <div className="mb-5">
+              <label
+                htmlFor="lastName"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Your last name
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+                {...register("lastName", {
+                  required: "Last Name is required",
+                })}
+              />
+              {errors.lastName && (
+                <p className="text-red-600">{errors.lastName.message}</p>
+              )}
+            </div>
             <div className="mb-5">
               <label
                 htmlFor="email"
@@ -89,14 +143,34 @@ const LoginPage = () => {
                 <p className="text-red-600">{errors.password.message}</p>
               )}
             </div>
+            <div className="mb-5">
+              <label
+                htmlFor="confirmPassword"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Your confirm password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+                {...register("confirmPassword", {
+                  required: "Confirm password is required",
+                })}
+              />
+              {errors.confirmPassword && (
+                <p className="text-red-600">{errors.confirmPassword.message}</p>
+              )}
+            </div>
             <div className="flex items-start mb-5">
               <p className="text-sm font-medium text-gray-900 dark:text-white">
-                New user?{" "}
+                Already have an account?{" "}
                 <Link
                   className="text-blue-500 hover:text-blue-600"
-                  href={"/register"}
+                  href={"/login"}
                 >
-                  Create an account
+                  Login
                 </Link>
               </p>
             </div>
@@ -107,7 +181,7 @@ const LoginPage = () => {
               {isLoading ? (
                 <Loader className="my-0" color="text-white" />
               ) : (
-                "Login"
+                "Register"
               )}
             </button>
           </form>
@@ -117,4 +191,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

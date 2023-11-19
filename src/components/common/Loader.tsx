@@ -16,7 +16,7 @@ const Loader = ({
       }`}
     >
       <svg
-        className={`animate-spin ${w && h ? `w-${w} h-${h}` : "w-6 h-6"} ${
+        className={`animate-spin ${w && h ? `w-${w} h-${h}` : "w-5 h-5"} ${
           color ? color : "text-blue-600"
         } fill-current shrink-0`}
         viewBox="0 0 16 16"
