@@ -40,8 +40,8 @@ const LoginPage = () => {
   }, [data, error]);
 
   return (
-    <div className="flex justify-center align-middle items-center h-[100vh] px-8">
-      <div className="p-5 sm:p-12 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-9/12 lg:w-6/12 xl:w-4/12">
+    <div className="flex justify-center align-middle items-center px-8 min-h-screen">
+      <div className="p-5 sm:p-12 my-16 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-9/12 lg:w-6/12 xl:w-4/12">
         <div>
           <div className="flex flex-col space-y-2 text-center mb-8">
             <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">

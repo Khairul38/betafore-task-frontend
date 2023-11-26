@@ -88,11 +88,12 @@ const CheckoutForm = ({
       setProcessing(false);
 
       const payment = {
-        amount: paymentIntent.amount,
+        amount: paymentIntent.amount / 100,
         created: paymentIntent.created,
         last4: (paymentMethod as any).card.last4,
         transaction: paymentIntent.id,
       };
+
       dispatch(paymentSuccess(payment));
       localStorage.setItem("payment", JSON.stringify({ ...payment }));
       router.push("/success");
@@ -101,19 +102,28 @@ const CheckoutForm = ({
   };
   return (
     <form onSubmit={handleSubmit}>
+      <label
+        htmlFor="email"
+        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        Card info
+      </label>
       <CardElement
         options={{
           style: {
             base: {
               fontSize: "16px",
-              color: "#424770",
+              color: "#aab7c4",
               "::placeholder": {
                 color: "#aab7c4",
               },
             },
             invalid: {
-              color: "#9e2146",
+              color: "red",
             },
+          },
+          classes: {
+            base: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
           },
         }}
       />

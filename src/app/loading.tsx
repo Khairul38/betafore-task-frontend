@@ -1,7 +1,9 @@
+import Loader from "@/components/common/Loader";
+
 const Loading = () => {
   return (
     <div>
-      <h1>Loading...</h1>
+      <Loader />
     </div>
   );
 };

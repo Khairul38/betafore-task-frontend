@@ -9,7 +9,7 @@ const HomePage = async () => {
   return (
     <div>
       {/* Featured Products */}
-      <div className="pt-24 pb-10">
+      <div className="pt-28 pb-16">
         <div className="text-center dark:text-white pb-8">
           <p className="text-4xl font-bold mb-2">Featured Products</p>
           <p>Check & Get Your Desire Product!</p>
