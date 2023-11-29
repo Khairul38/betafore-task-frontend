@@ -34,7 +34,7 @@ const LoginPage = () => {
     }
     if (data?.data?.accessToken) {
       notify("success", "User login successfully");
-      router.push("/home");
+      router.push("/");
       // navigate(from, { replace: true });
     }
   }, [data, error]);

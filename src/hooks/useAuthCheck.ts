@@ -8,8 +8,8 @@ import { paymentSuccess } from "@/redux/features/payment/paymentSlice";
 import { usePathname, useRouter } from "next/navigation";
 
 const useAuthCheck = () => {
-  const dispatch = useAppDispatch();
   const [authChecked, setAuthChecked] = useState(false);
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const pathName = usePathname();
 

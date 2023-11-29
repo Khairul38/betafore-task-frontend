@@ -8,7 +8,7 @@ import useAuthCheck from "@/hooks/useAuthCheck";
 import { userLoggedIn } from "@/redux/features/auth/authSlice";
 import { clearCart, stateUpdate } from "@/redux/features/cart/cartSlice";
 import { paymentSuccess } from "@/redux/features/payment/paymentSlice";
-import { useAppDispatch } from "@/redux/reduxHooks";
+import { useAppDispatch, useAppSelector } from "@/redux/reduxHooks";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -19,6 +19,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const pathName = usePathname();
   const authChecked = useAuthCheck();
   const isLoggedIn = useAuth();
+  const auth = useAppSelector((state) => state.auth);
+
+  // console.log(auth, isLoggedIn);
 
   useEffect(() => {
     const localAuth = localStorage.getItem("auth");
@@ -47,7 +50,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       }
     }
     setLoading(false);
-  }, [dispatch, isLoggedIn, router]);
+  }, [isLoggedIn, dispatch, router]);
 
   if (loading) return <Loader />;
 

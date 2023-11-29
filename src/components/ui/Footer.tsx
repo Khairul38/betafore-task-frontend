@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-white dark:bg-gray-900">
       <div className="w-full max-w-screen-2xl mx-auto p-8 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <Link href="/home" className="flex items-center mb-4 sm:mb-0">
+          <Link href="/" className="flex items-center mb-4 sm:mb-0">
             <Image
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8 mr-3"

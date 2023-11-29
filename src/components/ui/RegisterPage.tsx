@@ -48,7 +48,7 @@ const RegisterPage = () => {
     }
     if (data?.data?.accessToken) {
       notify("success", "User login successfully");
-      router.push("/home");
+      router.push("/");
       // navigate(from, { replace: true });
     }
   }, [data, error]);
@@ -59,10 +59,10 @@ const RegisterPage = () => {
         <div>
           <div className="flex flex-col space-y-2 text-center mb-8">
             <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Login to your account
+              Create an account
             </h1>
             <p className="text-sm text-muted-foreground text-gray-900 dark:text-white">
-              Enter your email & password below
+              Enter your info to create your account
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
