@@ -4,6 +4,9 @@ Frontend Live Link: https://betafore-task-frontend.vercel.app/login
 
 <!-- HOW TO RUN -->
 
+<!-- Test -->
+<!-- Testing -->
+
 ## Run this repository on your local machine
 
 Please follow the below instructions to run this repository on your local machine:
